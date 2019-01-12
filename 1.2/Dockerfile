@@ -1,9 +1,8 @@
-FROM debian:stretch-slim
-MAINTAINER Nicolas Berthe <nicolas.berthe@alterway.fr>
+FROM alpine
+MAINTAINER Slavisa Lukic <lukic@gmx.ch>
 
-ENV KEEPALIVED_VERSION 1:1.2.13-1
 RUN apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y keepalived=${KEEPALIVED_VERSION} && \
+    apt-get install --no-install-recommends --no-install-suggests -y keepalived && \
     rm -rf /var/lib/apt/lists/*
 
 COPY keepalived /etc/keepalived/
