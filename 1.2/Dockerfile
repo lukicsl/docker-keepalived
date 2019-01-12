@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch-slim
 MAINTAINER Nicolas Berthe <nicolas.berthe@alterway.fr>
 
 ENV KEEPALIVED_VERSION 1:1.2.13-1
