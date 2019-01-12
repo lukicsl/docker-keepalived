@@ -8,6 +8,9 @@ services:
     container_name: keepalived-${HOSTNAME}
     labels:
       - io.rancher.scheduler.global=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - /root/.docker:/root/.docker    
     environment:
       - VIRTUAL_IP=192.168.3.200
       - VIRTUAL_ROUTER_ID='51'
