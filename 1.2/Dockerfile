@@ -1,11 +1,11 @@
-FROM alpine
-MAINTAINER Slavisa Lukic <lukic@gmx.ch>
+FROM debian:stretch-slim	
+MAINTAINER MAINTAINER Slavisa Lukic <lukic@gmx.ch>
 
-RUN apk --no-cache --no-progress upgrade && \
-    apk --no-cache --no-progress add keepalived && \
-    rm -rf /tmp/*
+
+    
+RUN apt-get update && \	RUN apt-get update && \
+    apt-get install --no-install-recommends --no-install-suggests -y keepalived && \
+    rm -rf /var/lib/apt/lists/*	 
+
 
 COPY keepalived /etc/keepalived/
-COPY docker-entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
